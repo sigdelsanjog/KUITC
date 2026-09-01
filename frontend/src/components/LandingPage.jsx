@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import KULogo from '../assets/KU-Logo.png'
+
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
@@ -65,25 +68,43 @@ const team = [
 ];
 
 function LandingPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const handleNavClick = () => {
+    setIsMenuOpen(false)
+  }
+
   return (
     <>
       <header className="site-header">
         <div className="container nav-wrap">
           <div className="brand">
-            <div className="brand-mark">KU</div>
+            <img src={KULogo} alt="Kathmandu University ITC logo" className="brand-mark" />
             <div>
               <span className="brand-name">KUITC</span>
-              <small>Information Technology Center</small>
+              <small>Kathmandu University Information Technology Center</small>
             </div>
           </div>
 
-          <nav className="main-nav" aria-label="Main navigation">
+          <nav className={`main-nav ${isMenuOpen ? 'mobile-open' : ''}`} aria-label="Main navigation">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href}>
+              <a key={item.label} href={item.href} onClick={handleNavClick}>
                 {item.label}
               </a>
             ))}
           </nav>
+
+          <button
+            type="button"
+            className="menu-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
 
           <a className="nav-cta" href="#contact">
             Get in Touch
