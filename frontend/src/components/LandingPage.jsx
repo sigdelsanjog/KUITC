@@ -22,6 +22,7 @@ const units = [
   {
     badge: 'HPC',
     badgeClass: '',
+    slug: 'hpc',
     title: 'High Performance Computing Unit',
     text:
       'Hosting KU’s research computation clusters with high storage and compute capacity, supporting advanced research through CERN-donated infrastructure.',
@@ -29,16 +30,18 @@ const units = [
   {
     badge: 'AIE',
     badgeClass: 'orange',
+    slug: 'aie',
     title: 'Artificial Intelligence Excellence Unit',
     text:
       'Advancing AI literacy, policy research, and ethical AI applications across education, health, and agriculture.',
   },
   {
-    badge: 'CIR',
+    badge: 'CIU',
     badgeClass: 'aqua',
-    title: 'Crisis Informatics Research Unit',
+    slug: 'ciu',
+    title: 'Crisis Informatics Unit',
     text:
-      'Developing Nepal’s National Crisis Intelligence System for real-time emergency response and multi-sector coordination.',
+      'Developing Nepal’s crisis intelligence and response systems for real-time monitoring, coordination, and resilience planning.',
   },
 ];
 
@@ -78,11 +81,16 @@ const team = [
   { image: member, name: 'Research Intern 3', role: 'Research Intern', tone: 'avatar-orange' },
 ];
 
-function LandingPage() {
+function LandingPage({ onNavigate = () => {} }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleNavClick = () => {
     setIsMenuOpen(false)
+  }
+
+  const handleUnitClick = (slug, event) => {
+    event.preventDefault()
+    onNavigate(`/${slug}`)
   }
 
   return (
@@ -241,7 +249,9 @@ function LandingPage() {
                   <span className={`feature-badge ${unit.badgeClass}`}>{unit.badge}</span>
                   <h3>{unit.title}</h3>
                   <p>{unit.text}</p>
-                  <a href="#contact">Read More</a>
+                  <a href={`/${unit.slug}`} onClick={(event) => handleUnitClick(unit.slug, event)}>
+                    Read More
+                  </a>
                 </article>
               ))}
             </div>

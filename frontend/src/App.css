@@ -509,6 +509,56 @@
   width: fit-content;
 }
 
+.unit-page-shell {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f7f9fc 0%, #edf4ff 100%);
+}
+
+.unit-page {
+  padding: 4.5rem 0 5rem;
+}
+
+.unit-page-inner {
+  max-width: 980px;
+  background: var(--ku-white);
+  border: 1px solid var(--ku-border);
+  border-radius: 24px;
+  padding: 2rem 2.2rem;
+  box-shadow: 0 18px 40px rgba(8, 29, 60, 0.08);
+}
+
+.unit-header {
+  margin-bottom: 1rem;
+}
+
+.unit-header h1 {
+  margin: 0.6rem 0 0;
+  color: var(--ku-navy);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+.unit-intro,
+.unit-copy {
+  color: var(--ku-muted);
+  font-size: 1.06rem;
+  line-height: 1.8;
+}
+
+.unit-copy {
+  margin-top: 1rem;
+}
+
+.unit-back {
+  border: none;
+  background: transparent;
+  color: var(--ku-blue);
+  font-weight: 700;
+  padding: 0;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
 .site-footer {
   background: var(--ku-navy-deep);
   color: rgba(255, 255, 255, 0.8);
