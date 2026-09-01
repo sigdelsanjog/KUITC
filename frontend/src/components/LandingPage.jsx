@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import KULogo from '../assets/KU-Logo.png'
+import nticVideo from '../assets/ntic.mp4'
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -10,31 +11,12 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
-const highlightItems = [
-  { title: 'University-wide', text: 'Data center & cloud infrastructure' },
-  { title: 'Research Ready', text: 'Supercomputer facility for innovation' },
-  { title: 'Secure Access', text: 'VPN and email systems for campus users' },
-  { title: 'Connected', text: 'Robust campus network and digital support' },
-];
-
-const services = [
-  {
-    title: 'Computing & Data Services',
-    text: 'High-performance computing and reliable data storage for academic and research needs.',
-  },
-  {
-    title: 'Cloud & Hosting',
-    text: 'Cloud storage, virtualization, and server management for departments and research labs.',
-  },
-  {
-    title: 'Network & Security',
-    text: 'Campus-wide network with robust security and data protection measures.',
-  },
-  {
-    title: 'VPN & Email Systems',
-    text: 'Secure remote access and institutional email platforms for staff and students.',
-  },
-];
+// const highlightItems = [
+//   { title: 'University-wide', text: 'Data center & cloud infrastructure' },
+//   { title: 'Research Ready', text: 'Supercomputer facility for innovation' },
+//   { title: 'Secure Access', text: 'VPN and email systems for campus users' },
+//   { title: 'Connected', text: 'Robust campus network and digital support' },
+// ];
 
 const units = [
   {
@@ -60,11 +42,40 @@ const units = [
   },
 ];
 
+const services = [
+  {
+    title: 'Computing & Data Services',
+    text: 'High-performance computing and reliable data storage for academic and research needs.',
+  },
+  {
+    title: 'Cloud & Hosting',
+    text: 'Cloud storage, virtualization, and server management for departments and research labs.',
+  },
+  {
+    title: 'Network & Security',
+    text: 'Campus-wide network with robust security and data protection measures.',
+  },
+  {
+    title: 'VPN & Email Systems',
+    text: 'Secure remote access and institutional email platforms for staff and students.',
+  },
+];
+
+
+
+import kuVc from '../assets/ku-vc.png'
+import kuRegistrar from '../assets/ku-registrar.png'
+import kuCoordinator from '../assets/ku-itc-coordinator.png'
+import sudansir from '../assets/sudansir.jpg'
+import member from '../assets/member.jpg'
+
 const team = [
-  { initials: 'BB', name: 'Prof. Dr. Bivek Baral', role: 'Vice-Chancellor, Kathmandu University', tone: 'avatar-blue' },
-  { initials: 'RS', name: 'Prof. Dr. Rajeev Shrestha', role: 'Registrar, Kathmandu University', tone: 'avatar-gold' },
-//   { initials: 'SJ', name: 'Prof. Dr. Sudan Jha', role: 'Associate Director', tone: 'avatar-teal' },
-  { initials: 'SS', name: 'Mr. Sanjog Sigdel', role: 'Coordinator, KUITC | Lecturer, DoCSE', tone: 'avatar-orange' },
+  { image: kuVc, name: 'Prof. Dr. Bivek Baral', role: 'Vice-Chancellor, Kathmandu University', tone: 'avatar-blue' },
+  { image: kuRegistrar, name: 'Prof. Dr. Rajeev Shrestha', role: 'Registrar, Kathmandu University', tone: 'avatar-gold' },
+  { image: sudansir, name: 'Prof. Dr. Sudan Jha', role: 'Professor, DoCSE | Member, National Planning Commission, Government of Nepal', tone: 'avatar-blue' },
+  { image: kuCoordinator, name: 'Mr. Sanjog Sigdel', role: 'Coordinator, KUITC | Lecturer, DoCSE', tone: 'avatar-orange' },
+  { image: member, name: 'Research Intern 2', role: 'Research Intern', tone: 'avatar-gold' },
+  { image: member, name: 'Research Intern 3', role: 'Research Intern', tone: 'avatar-orange' },
 ];
 
 function LandingPage() {
@@ -114,10 +125,16 @@ function LandingPage() {
 
       <main>
         <section id="home" className="hero">
+          <div className="hero-video-wrap" aria-hidden="true">
+            <video className="hero-video" autoPlay muted loop playsInline>
+              <source src={nticVideo} type="video/mp4" />
+            </video>
+          </div>
+
           <div className="container hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow">Welcome to Kathmandu University</p>
-              <h1>Empowering Knowledge through Technology</h1>
+              <p className="eyebrow">Welcome To </p>
+              <h1>Kathmandu University Information Technology Center (KUITC)</h1>
               <p className="lead">
                 At the heart of Kathmandu University’s digital transformation, the
                 Information Technology Center (ITC) plans, develops, manages, and
@@ -133,32 +150,32 @@ function LandingPage() {
                 </a>
               </div>
               <ul className="hero-points">
-                <li>University-wide data center</li>
-                <li>Secure VPN &amp; email systems</li>
-                <li>High-performance research support</li>
+                <li>High Performance Computing</li>
+                <li>Computing backbone for Students</li>
+                <li>Research and Technology Support</li>
               </ul>
             </div>
 
             <div className="hero-panel" aria-label="ITC information panel">
               <div className="panel-card top-card">
                 <span className="card-label">Research &amp; Infrastructure</span>
-                <strong>HPC + Cloud + Secure Networks</strong>
+                <strong>High Performance Computing for Research</strong>
               </div>
               <div className="panel-card middle-card">
                 <span className="card-label">Mission</span>
-                <strong>Transform Nepal’s ICT landscape through innovation</strong>
+                <strong>Transform Nepal’s ICT Landscape Through Innovation</strong>
               </div>
               <div className="panel-card bottom-card">
                 <span className="card-label">Vision</span>
                 <strong>
-                  Build a digitally advanced, secure and sustainable university ecosystem
+                  Build a Digitally Advanced, and Sustainable University Ecosystem
                 </strong>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="highlights">
+        {/* <section className="highlights">
           <div className="container highlights-grid">
             {highlightItems.map((item) => (
               <div key={item.title} className="stat-box">
@@ -167,7 +184,7 @@ function LandingPage() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         <section id="about" className="section section-light">
           <div className="container split-layout">
@@ -206,7 +223,7 @@ function LandingPage() {
               <article className="info-card">
                 <h3>Vision</h3>
                 <p>
-                  To build a digitally advanced, secure, and sustainable IT ecosystem
+                  To build a digitally advanced, and sustainable IT ecosystem
                   that empowers students, faculty, and researchers.
                 </p>
               </article>
@@ -214,27 +231,10 @@ function LandingPage() {
           </div>
         </section>
 
-        <section id="services" className="section section-light">
-          <div className="container">
-            <p className="section-tag">Services</p>
-            <h2 className="section-heading">
-              Technology services for learning, research, and operations
-            </h2>
-            <div className="card-grid service-grid">
-              {services.map((service) => (
-                <article key={service.title} className="info-card service-card">
-                  <h3>{service.title}</h3>
-                  <p>{service.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="units" className="section section-alt">
           <div className="container">
             <p className="section-tag">Our Specialized Units</p>
-            <h2 className="section-heading">Dedicated research and innovation units at KU</h2>
+            <h2 className="section-heading">Dedicated Research and Innovation Units</h2>
             <div className="card-grid unit-grid">
               {units.map((unit) => (
                 <article key={unit.title} className="feature-card">
@@ -248,6 +248,23 @@ function LandingPage() {
           </div>
         </section>
 
+         <section id="services" className="section section-light">
+          <div className="container">
+            <p className="section-tag">Services</p>
+            <h2 className="section-heading">
+              Technology services for learning, research, and development
+            </h2>
+            <div className="card-grid service-grid">
+              {services.map((service) => (
+                <article key={service.title} className="info-card service-card">
+                  <h3>{service.title}</h3>
+                  <p>{service.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="team" className="section section-light">
           <div className="container">
             <p className="section-tag">Our Team</p>
@@ -255,7 +272,7 @@ function LandingPage() {
             <div className="team-grid">
               {team.map((member) => (
                 <article key={member.name} className="team-card">
-                  <div className={`avatar ${member.tone}`}>{member.initials}</div>
+                  <img src={member.image} alt={member.name} className="team-photo" />
                   <h3>{member.name}</h3>
                   <p>{member.role}</p>
                 </article>
@@ -275,22 +292,13 @@ function LandingPage() {
                   <a href="mailto:itc@ku.edu.np">itc@ku.edu.np</a>
                 </p>
                 <p>
-                  <strong>Location:</strong> NTIC Building, Kathmandu University,
-                  Dhulikhel Campus
+                  <strong>Location:</strong> KUITC, NTIC Building, Kathmandu University,
+                  Dhulikhel, Kavre, Nepal
                 </p>
                 <p>
                   For HPC access, research enquiries, and IT services, please reach out to the ITC team.
                 </p>
               </div>
-            </div>
-
-            <div className="contact-card">
-              <h3>Quick Contact</h3>
-              <p>Need immediate assistance or have questions about our services?</p>
-              <a className="primary-btn" href="mailto:itc@ku.edu.np">
-                Email ITC Team
-              </a>
-              <small>Response time: Within 24-48 hours</small>
             </div>
           </div>
         </section>
